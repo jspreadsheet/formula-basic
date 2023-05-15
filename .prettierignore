@@ -1,9 +1,5 @@
-.DS_Store
-.idea
-
-dist
 coverage
 lib
 mochawesome-report
-node_modules
 types
+dist
