@@ -1,0 +1,52 @@
+{
+    "name": "@jspreadsheet/formula",
+    "title": "The Spreadsheet Formula Parser",
+    "description": "Jspreadsheet formula basic is a JavaScript software to parse spreadsheet-like formulas.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jspreadsheet/packages.git"
+    },
+    "author": {
+        "name": "Contact <contact@jspreadsheet.com>"
+    },
+    "keywords": [
+        "spreadsheet",
+        "online spreadsheet",
+        "jspreadsheet",
+        "jexcel",
+        "tables",
+        "table",
+        "excel",
+        "google spreadsheet",
+        "spreadsheet formulas",
+        "grid",
+        "grid-editor",
+        "data-table",
+        "data-grid",
+        "data-spreadsheet"
+    ],
+    "main": "dist/index.js",
+    "version": "2.0.0",
+    "scripts": {
+        "build": "npx webpack --mode=production --config webpack.config.js",
+        "start": "npx webpack serve --history-api-fallback",
+        "test": "mocha --recursive --require=mocha.config.js",
+        "test:watch": "mocha --recursive --watch --parallel --reporter min --require=mocha.config.js",
+        "test:browser": "mocha --recursive --reporter mochawesome",
+        "test:coverage": "c8 mocha --recursive"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "c8": "^7.13.0",
+        "chai": "^4.3.7",
+        "mocha": "^10.2.0",
+        "mochawesome": "^7.1.3",
+        "webpack": "^5.82.1",
+        "webpack-cli": "^5.1.1",
+        "webpack-dev-server": "^4.15.0"
+    },
+    "dependencies": {
+        "@formulajs/formulajs": "^4.2.0",
+        "jsuites": "^5.0.16"
+    }
+}
