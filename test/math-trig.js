@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+const { expect } = require('chai')
 
 describe('Perform the function', () => {
     it('SUM with simple arguments successfully', () => {
@@ -26,6 +26,19 @@ describe('Perform the function', () => {
     it('SUMPRODUCT with named arguments successfully', () => {
         expect(formula(`SUMPRODUCT(A1:A2, B1:B2)`, { A1: 4, A2: 9, B1: 4, B2: 4 })).to.eq(52)
         expect(formula(`SUMPRODUCT(A1:A3, B1:B3)`, { A1: 4, A2: 9, A3: 1, B1: 4, B2: 4, B3: -10 })).to.eq(42)
-        expect(formula(`SUMPRODUCT(A1:A5, B1:B5)`, { A1: 4, A2: 9, A3: 1, A4: 15, A5: -3, B1: 4, B2: 4, B3: -10, B4: 0, B5: -3 })).to.eq(51)
+        expect(
+            formula(`SUMPRODUCT(A1:A5, B1:B5)`, {
+                A1: 4,
+                A2: 9,
+                A3: 1,
+                A4: 15,
+                A5: -3,
+                B1: 4,
+                B2: 4,
+                B3: -10,
+                B4: 0,
+                B5: -3
+            })
+        ).to.eq(51)
     })
-});
+})

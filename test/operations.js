@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+const { expect } = require('chai')
 
 describe('Perform a basic operation', () => {
     it('successfully', () => {
@@ -29,4 +29,4 @@ describe('Perform a basic operation', () => {
         expect(formula('5 % 2')).to.eq(1)
         expect(formula('(-10) % 3')).to.eq(-1)
     })
-});
+})

@@ -1,31 +1,31 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = (env, argv) => {
     const prod = {
         target: ['web', 'es5'],
         entry: {
-            'index': './src/index.js',
+            index: './src/index.js'
         },
         mode: 'production',
         output: {
             library: {
                 name: 'formula',
                 type: 'umd',
-                export: [ 'default' ],
+                export: ['default']
             },
             globalObject: 'this',
-            filename: '[name].js',
+            filename: '[name].js'
         },
         externals: {
-            'jsuites': 'jsuites',
+            jsuites: 'jsuites',
             '@formulajs/formulajs': '@formulajs/formulajs'
         },
         plugins: [],
         optimization: {
             minimize: false
         },
-        stats: { warnings:false },
-    };
+        stats: { warnings: false }
+    }
 
     const dev = {
         target: 'web',
@@ -36,34 +36,34 @@ module.exports = (env, argv) => {
         },
         output: {
             filename: 'index.js',
-            path: path.resolve(__dirname, 'dist'),
+            path: path.resolve(__dirname, 'dist')
         },
         module: {
             rules: [
                 {
                     test: /\.css$/,
-                    use: ['style-loader', 'css-loader'],
-                },
-            ],
+                    use: ['style-loader', 'css-loader']
+                }
+            ]
         },
         devServer: {
             // contentBase
             static: {
-                directory: path.join(__dirname, "/")
+                directory: path.join(__dirname, '/')
             },
             headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-                "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+                'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
             },
             port: 3005,
             devMiddleware: {
-                publicPath: "https://localhost:3000/dist/",
+                publicPath: 'https://localhost:3000/dist/'
             },
-            hot: "only",
+            hot: 'only'
         },
         stats: { warnings: false }
     }
 
-    return argv.mode === 'production' ? prod : dev;
-};
+    return argv.mode === 'production' ? prod : dev
+}

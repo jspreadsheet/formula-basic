@@ -1,12 +1,12 @@
 #! /usr/bin/env node
 
-let formula = require("./src/formula.js")
+let formula = require('./src/formula.js')
 
-global.formula = formula;
+global.formula = formula
 
 exports.mochaHooks = {
     afterEach(done) {
         // destroy
-        done();
-    },
-};
+        done()
+    }
+}

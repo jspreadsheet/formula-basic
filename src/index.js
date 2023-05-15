@@ -1,5 +1,5 @@
-let formula = require("./formula.js")
+let formula = require('./formula.js')
 
 window.formula = formula
 
-export default formula;
+export default formula

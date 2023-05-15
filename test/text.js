@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+const { expect } = require('chai')
 
 describe('Perform the function', () => {
     it('AVERAGE with simple arguments successfully', () => {
@@ -11,4 +11,4 @@ describe('Perform the function', () => {
     xit('AVERAGE with named arguments successfully', () => {
         expect(formula('CONCATENATE(A1, A2)', { A1: 'HELLO', A2: 'WORLD' })).to.eq('HELLOWORLD')
     })
-});
+})

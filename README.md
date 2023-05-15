@@ -5,6 +5,7 @@ Formula is an expression evaluator designed to handle Excel Formulas. It utilize
 ## Installation
 
 ### npm
+
 To install in your project using npm, run the following command:
 
 ```bash
@@ -12,6 +13,7 @@ $ npm i @jspreadsheet/formula-basic
 ```
 
 ### CDN
+
 To use Formula via a CDN, include the following script tags in your HTML file:
 
 ```html
@@ -22,7 +24,7 @@ To use Formula via a CDN, include the following script tags in your HTML file:
 
 ## Usage
 
-After installation, Formula can be utilized in your code by requiring it into your JavaScript file. 
+After installation, Formula can be utilized in your code by requiring it into your JavaScript file.
 
 ```javascript
 const formula = require('@jspreadsheet/formula')

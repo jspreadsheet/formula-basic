@@ -1,4 +1,4 @@
-const { expect } = require('chai');
+const { expect } = require('chai')
 
 describe('Perform the function', () => {
     it('AVERAGE with simple arguments successfully', () => {
@@ -83,4 +83,4 @@ describe('Perform the function', () => {
         expect(formula(`COUNTIF(A1:A5, '<3')`, { A1: 4, A2: 9, A3: 5, A4: 6, A5: 22 })).to.eq(0)
         expect(formula(`COUNTIF(A1:A5, '<22')`, { A1: 4, A2: 9, A3: 5, A4: 6, A5: 22 })).to.eq(4)
     })
-});
+})
