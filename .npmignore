@@ -1,0 +1,16 @@
+.idea
+.project
+.settings
+.gitignore
+.npmignore
+.prettierignore
+.prettierrc
+.eslintignore
+.eslintrc.js
+index.html
+src
+test/*
+README.md
+*.config.js
+mochawesome-report
+coverage

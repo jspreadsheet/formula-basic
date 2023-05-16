@@ -231,14 +231,12 @@ if (!formulajs && typeof require === 'function') {
                                 if (tokens && tokens.length) {
                                     variables[keys[i]] = tokensUpdate(tokens, variables[keys[i]])
                                 }
-                                var c = "'" + variables[keys[i]] + "'" 
                             }
 
                             if (t.indexOf('.') > 0) {
-                                s += t + " = " + (c === undefined ? variables[keys[i]] : c) + ";\n"
+                                s += t + " = " + variables[keys[i]] + ";\n"
                             } else {
-
-                                s += "var " + t + " = " + (c === undefined ? variables[keys[i]] : c) + ";\n"
+                                s += "var " + t + " = " + variables[keys[i]] + ";\n"
                             }
                         }
                     }
