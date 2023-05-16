@@ -231,12 +231,14 @@ if (!formulajs && typeof require === 'function') {
                                 if (tokens && tokens.length) {
                                     variables[keys[i]] = tokensUpdate(tokens, variables[keys[i]])
                                 }
+                                var c = "'" + variables[keys[i]] + "'" 
                             }
 
                             if (t.indexOf('.') > 0) {
-                                s += t + ' = ' + variables[keys[i]] + ';\n'
+                                s += t + " = " + (c === undefined ? variables[keys[i]] : c) + ";\n"
                             } else {
-                                s += 'var ' + t + ' = ' + variables[keys[i]] + ';\n'
+
+                                s += "var " + t + " = " + (c === undefined ? variables[keys[i]] : c) + ";\n"
                             }
                         }
                     }
@@ -254,7 +256,7 @@ if (!formulajs && typeof require === 'function') {
                 expression = tokensUpdate(tokens, expression)
             }
             // Calculate
-            var result = new Function(s + '; return ' + expression)()
+            var result = new Function(s + "; return " + expression)()
             if (result === null) {
                 result = 0
             }

@@ -9,7 +9,7 @@ module.exports = (env, argv) => {
         mode: 'production',
         output: {
             library: {
-                name: 'formula',
+                name: 'formula-basic',
                 type: 'umd',
                 export: ['default']
             },
@@ -22,7 +22,7 @@ module.exports = (env, argv) => {
         },
         plugins: [],
         optimization: {
-            minimize: false
+            minimize: true
         },
         stats: { warnings: false }
     }

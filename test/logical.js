@@ -8,7 +8,7 @@ describe('Perform the function', () => {
         expect(formula(`IF(0 = 1, 'YES', 'NO')`)).to.eq('NO')
     })
 
-    xit('IF with named arguments successfully', () => {
+    it('IF with named arguments successfully', () => {
         expect(formula(`IF(A1 > 1, 'YES', 'NO')`, { A1: 2 })).to.eq('YES')
         expect(formula(`IF(A1 > 1, 'YES', 'NO')`, { A1: 0 })).to.eq('NO')
         expect(formula(`IF(A1 > A2, 'YES', 'NO')`, { A1: 7567567, A2: 1 })).to.eq('YES')

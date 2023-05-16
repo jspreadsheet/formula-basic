@@ -1,5 +1,5 @@
 {
-    "name": "@jspreadsheet/formula",
+    "name": "@jspreadsheet/formula-basic",
     "title": "The Spreadsheet Formula Parser",
     "description": "Jspreadsheet formula basic is a JavaScript software to parse spreadsheet-like formulas.",
     "repository": {
