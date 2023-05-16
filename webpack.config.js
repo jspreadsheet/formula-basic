@@ -16,12 +16,9 @@ module.exports = (env, argv) => {
             globalObject: 'this',
             filename: '[name].js'
         },
-        externals: {
-            '@formulajs/formulajs': '@formulajs/formulajs'
-        },
         plugins: [],
         optimization: {
-            minimize: true
+            minimize: false
         },
         stats: { warnings: false }
     }
