@@ -5,15 +5,6 @@
  *
  * https://jspreadsheet.com
  */
-
-if (!jSuites && typeof require === 'function') {
-    var jSuites = require('jsuites')
-}
-
-if (!formulajs && typeof require === 'function') {
-    var formulajs = require('@formulajs/formulajs')
-}
-
 ;(function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined'
         ? (module.exports = factory())
@@ -157,7 +148,10 @@ if (!formulajs && typeof require === 'function') {
         }
 
         var isNumeric = function (num) {
-            return !isNaN(num) && num !== null && num !== ''
+            if (typeof(num) === 'string') {
+                num = num.trim();
+            }
+            return !isNaN(num) && num !== null && num !== '';
         }
 
         var F = function (expression, variables, i, j, obj) {
@@ -188,7 +182,7 @@ if (!formulajs && typeof require === 'function') {
                     variables.forEach(function (v, k) {
                         // Replace ! per dot
                         t = k.replace(/!/g, '.')
-                        if (v !== null && !jSuites.isNumeric(v)) {
+                        if (v !== null && !isNumeric(v)) {
                             tokens = v.match(/(('.*?'!)|(\w*!))?(\$?[A-Z]+\$?[0-9]*):(\$?[A-Z]+\$?[0-9]*)?/g)
                             if (tokens && tokens.length) {
                                 v = updateRanges(tokens, v)

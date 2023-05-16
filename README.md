@@ -9,7 +9,7 @@ Formula Basic is an expression evaluator designed to handle Excel Formulas. It u
 To install in your project using npm, run the following command:
 
 ```bash
-$ npm i @jspreadsheet/formula-basic
+$ npm i @jspreadsheet/formula
 ```
 
 ### CDN

@@ -17,7 +17,6 @@ module.exports = (env, argv) => {
             filename: '[name].js'
         },
         externals: {
-            jsuites: 'jsuites',
             '@formulajs/formulajs': '@formulajs/formulajs'
         },
         plugins: [],

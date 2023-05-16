@@ -1,7 +1,7 @@
 {
-    "name": "@jspreadsheet/formula-basic",
+    "name": "@jspreadsheet/formula",
     "title": "The Spreadsheet Formula Parser",
-    "description": "Jspreadsheet formula basic is a JavaScript software to parse spreadsheet-like formulas.",
+    "description": "Jspreadsheet formula is a JavaScript software to parse spreadsheet-like formulas.",
     "repository": {
         "type": "git",
         "url": "https://github.com/jspreadsheet/packages.git"
@@ -26,7 +26,7 @@
         "data-spreadsheet"
     ],
     "main": "dist/index.js",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "scripts": {
         "build": "npx webpack --mode=production --config webpack.config.js",
         "start": "npx webpack serve --history-api-fallback",
@@ -54,7 +54,9 @@
         "eslint-config-prettier": "^8.8.0"
     },
     "dependencies": {
-        "@formulajs/formulajs": "^4.2.0",
-        "jsuites": "^5.0.16"
-    }
+        "@formulajs/formulajs": "^4.2.0"
+    },
+    "bugs": "https://github.com/jspreadsheet/formula/issues",
+    "homepage": "https://github.com/jspreadsheet/formula",
+    "download": "https://github.com/jspreadsheet/formula/archive/master.zip"
 }

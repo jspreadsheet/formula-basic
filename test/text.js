@@ -9,6 +9,6 @@ describe('Perform the function', () => {
     })
 
     it('AVERAGE with named arguments successfully', () => {
-        expect(formula('CONCATENATE(A1, A2)', { A1: 'HELLO', A2: 'WORLD' })).to.eq('HELLOWORLD')
+        expect(formula('CONCATENATE(A1, A2)', { A1: "'HELLO'", A2: "'WORLD'" })).to.eq('HELLOWORLD')
     })
 })
