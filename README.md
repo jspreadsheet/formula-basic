@@ -1,6 +1,6 @@
 # Formula
 
-Formula is an expression evaluator designed to handle Excel Formulas. It utilizes the formulajs/formulajs library to process and interpret these Formulas.
+Formula Basic is an expression evaluator designed to handle Excel Formulas. It utilizes the [formulajs/formulajs](https://github.com/formulajs/formulajs) library function to process and calculate these Formulas.
 
 ## Installation
 
@@ -73,9 +73,42 @@ formula('COUNT(A1:B2)', { A1: 1, A2: 1, B1: 1, B2: null })
 
 The syntax **A1:A5** generates an array consisting of the values found by the formula for each A in the range from 1 to 5, in this case: [A1, A2, A3, A4, A5].
 
+## Development
+
+### Running the project
+
+To run the project in development mode, use the following commands:
+
+```bash
+$ npm i
+$ npm start
+```
+
+This will start a web-server with formula available in console, as a playground.
+
+### Running Tests
+
+After installing the packages run:
+
+```bash
+$ npm run test
+```
+
+To see more details in a browser:
+
+```bash
+$ npm run test:browser
+```
+
+To have more information about test coverage:
+
+```bash
+$ npm run test:coverage
+```
+
 ## Contributing
 
-Formula is an open source project and contributions are welcome! If you find a bug or have a feature request, please open an issue on GitHub. If you'd like to contribute code, please fork the repository and submit a pull request.
+Formula basic is an open source project and contributions are welcome! If you find a bug or have a feature request, please open an issue on GitHub. If you'd like to contribute code, please fork the repository and submit a pull request.
 
 Ensure that you run the formatting plugins to maintain consistent code patterns. You can use the following command to do that:
 
@@ -83,6 +116,7 @@ Ensure that you run the formatting plugins to maintain consistent code patterns.
 $ npm run format
 ```
 
+
 ## License
 
-Formula is released under the MIT.
+Formula basic is released under the MIT.
