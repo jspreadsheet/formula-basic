@@ -19441,7 +19441,7 @@ const Formula = function (scope) {
     return F
 }
 
-let formula = Formula(undefined)
+let formula = Formula(window)
 /* harmony default export */ var src_formula = (formula);
 }();
 __webpack_exports__ = __webpack_exports__["default"];

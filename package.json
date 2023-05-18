@@ -1,4 +1,5 @@
 {
+    "type": "module",
     "name": "@jspreadsheet/formula",
     "title": "The Spreadsheet Formula Parser",
     "description": "Jspreadsheet formula is a JavaScript software to parse spreadsheet-like formulas.",

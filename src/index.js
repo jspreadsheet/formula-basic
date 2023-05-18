@@ -1,4 +1,4 @@
-let formula = require('./formula.js')
+import formula from "./formula.js"
 
 window.formula = formula
 

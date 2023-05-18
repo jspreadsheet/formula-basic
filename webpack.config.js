@@ -4,7 +4,7 @@ module.exports = (env, argv) => {
     const prod = {
         target: ['web', 'es5'],
         entry: {
-            index: './src/index.js'
+            index: './src/formula.js'
         },
         mode: 'production',
         output: {
