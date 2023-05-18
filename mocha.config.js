@@ -2,6 +2,8 @@
 
 let formula = require('./src/formula.js')
 
+
+
 global.formula = formula
 
 exports.mochaHooks = {
