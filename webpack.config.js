@@ -1,5 +1,35 @@
 const path = require('path');
 
+class MyPlugin {
+    apply(compiler) {
+        compiler.hooks.emit.tap('MyPlugin', (compilation) => {
+            // Get the bundled file name
+            const fileName = Object.keys(compilation.assets)[0];
+
+            // Get the bundled file content
+            const fileContent = compilation.assets[fileName].source();
+
+            const header = `;(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+    typeof define === 'function' && define.amd ? define(factory) :
+    global.formula = factory();
+}(this, (function () {`;
+
+            const footer = `    return Formula;
+})));`;
+
+            // Updated file content with custom content added
+            const updatedFileContent = header + '\n\n' + fileContent + '\n\n' + footer;
+
+            // Replace the bundled file content with updated content
+            compilation.assets[fileName] = {
+                source: () => updatedFileContent,
+                size: () => updatedFileContent.length,
+            };
+        });
+    }
+}
+
 module.exports = {
     target: ['web', 'es5'],
     entry: './src/formula.js',
@@ -26,5 +56,8 @@ module.exports = {
         },
         hot: "only",
     },
+    plugins: [
+        new MyPlugin(),
+    ],
     stats: { warnings:false },
 };
