@@ -103,9 +103,13 @@ const formulajs = require('@formulajs/formulajs');
         }
 
         // Apply a transformation only to the parts of the expression outside string literals
-        const replaceOutsideStrings = function (value, fn) {
-            return value.split(/("[^"]*")/).map(function (part, i) {
-                return i % 2 ? part : fn(part)
+        // ("" inside a string literal is an escaped double quote)
+        const replaceOutsideStrings = function (value, fn, stringFn) {
+            return value.split(/("(?:[^"]|"")*")/).map(function (part, i) {
+                if (i % 2) {
+                    return stringFn ? stringFn(part) : part
+                }
+                return fn(part)
             }).join('')
         }
 
@@ -257,6 +261,9 @@ const formulajs = require('@formulajs/formulajs');
                     part = tokensUpdate(tokens, part)
                 }
                 return part
+            }, function (part) {
+                // Convert the string literal to a valid JS string
+                return JSON.stringify(part.slice(1, -1).replace(/""/g, '"'))
             })
             // Calculate
             let result = new Function(s + "; return " + expression)()
