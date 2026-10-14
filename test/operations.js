@@ -30,3 +30,15 @@ describe('Perform a basic operation', () => {
         expect(formula('(-10) % 3')).to.eq(-1)
     })
 })
+
+describe('Keep string literals untouched', () => {
+    it('successfully', () => {
+        expect(formula('"Total: $"&"100"')).to.eq('Total: $100')
+        expect(formula('"Smith & Co"')).to.eq('Smith & Co')
+        expect(formula('"Hi!"')).to.eq('Hi!')
+        expect(formula('"a^b"')).to.eq('a^b')
+        expect(formula('"x<>y"')).to.eq('x<>y')
+        expect(formula('"TOTAL: A1:B2"')).to.eq('TOTAL: A1:B2')
+        expect(formula('SUM(A1:A2)&"$"', { A1: 1, A2: 2 })).to.eq('3$')
+    })
+})

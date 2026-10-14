@@ -102,6 +102,13 @@ const formulajs = require('@formulajs/formulajs');
             return instance.getValueFromCoords(parseNumber(col) - 1, parseNumber(y))
         }
 
+        // Apply a transformation only to the parts of the expression outside string literals
+        const replaceOutsideStrings = function (value, fn) {
+            return value.split(/("[^"]*")/).map(function (part, i) {
+                return i % 2 ? part : fn(part)
+            }).join('')
+        }
+
         // Secure formula
         const secureFormula = function (oldValue, runtime) {
             let newValue = '';
@@ -131,12 +138,13 @@ const formulajs = require('@formulajs/formulajs');
             }
 
             // Adapt to JS
-            newValue = newValue.replace(/\^/g, '**')
-            newValue = newValue.replace(/<>/g, '!=')
-            newValue = newValue.replace(/&/g, '+')
-            newValue = newValue.replace(/\$/g, '')
-
-            return newValue
+            return replaceOutsideStrings(newValue, function (part) {
+                part = part.replace(/\^/g, '**')
+                part = part.replace(/<>/g, '!=')
+                part = part.replace(/&/g, '+')
+                part = part.replace(/\$/g, '')
+                return part
+            })
         }
 
         // Convert range tokens
@@ -236,17 +244,20 @@ const formulajs = require('@formulajs/formulajs');
                     }
                 }
             }
-            // Remove $
-            expression = expression.replace(/\$/g, '')
-            // Replace ! per dot
-            expression = expression.replace(/!/g, '.')
+            // Remove $ and replace ! per dot
+            expression = replaceOutsideStrings(expression, function (part) {
+                return part.replace(/\$/g, '').replace(/!/g, '.')
+            })
             // Adapt to JS
             expression = secureFormula(expression, true)
             // Update range
-            let tokens = expression.match(/(('.*?'!)|(\w*!))?(\$?[A-Z]+\$?[0-9]*):(\$?[A-Z]+\$?[0-9]*)?/g)
-            if (tokens && tokens.length) {
-                expression = tokensUpdate(tokens, expression)
-            }
+            expression = replaceOutsideStrings(expression, function (part) {
+                let tokens = part.match(/(('.*?'!)|(\w*!))?(\$?[A-Z]+\$?[0-9]*):(\$?[A-Z]+\$?[0-9]*)?/g)
+                if (tokens && tokens.length) {
+                    part = tokensUpdate(tokens, part)
+                }
+                return part
+            })
             // Calculate
             let result = new Function(s + "; return " + expression)()
             if (result === null) {
